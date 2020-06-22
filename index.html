@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="jquery.json-viewer.css" rel="stylesheet">
+</head>
+    <title>POSTMAN - by Ritik Srivastava</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Post master</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact us</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+           HTTP REQUEST
+          </span>
+        </div>
+      </nav>
+  
+    
+        <div class="container">
+            <h1 class="my-3">Hello PostMan</h1>
+        </div>
+
+      <div class="container">
+       
+        <!-- for url input -->
+        <div class="form-group row">
+              <label for="url" class="col-sm-2 col-form-label">Url</label>
+              <div class="col-sm-10">
+              <input  type="text" id="url" class="form-control" >
+              </div>
+        </div>
+
+        <!-- for request url -->
+        <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Request</legend>
+              <div class="col-sm-10">
+                <div class="row mx-1">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="requestType" id="HTTP" value="GET" checked>
+                    <label class="form-check-label" for="GET">
+                      Get
+                    </label>
+                  </div>
+                  <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="requestType" id="HTTP" value="POST">
+                    <label class="form-check-label" for="POST">
+                      Post
+                    </label>
+                  </div>
+                  <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="requestType" id="POST" value="POST">
+                    <label class="form-check-label" for="POST">
+                      PATCH
+                    </label>
+                  </div>
+                    <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="requestType" id="POST" value="POST">
+                    <label class="form-check-label" for="POST">
+                      DELETE
+                    </label>
+                  </div>
+                </div>
+                
+               
+                
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- for custom parameter  -->
+        <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">CustomParameter</legend>
+              <div class="col-sm-10 my-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="params" id="json" value="json" checked>
+                  <label class="form-check-label" for="json">
+                    Json
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="params" id="customparam" value="custom">
+                  <label class="form-check-label" for="custom">
+                    Custom Params
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </fieldset>
+
+
+      <!-- for entering the parameter and key value  this will hide in json select-->
+        <div  id="parametersbox">
+                <div class="form-row">
+                        <label for="url" class="col-sm-2 col-form-label">Parameter 1</label>
+                        <div class="col-md-4">
+                        
+                          <input type="text" class="form-control" id="Parameterkey 1" placeholder="Parameter key 1">
+                        </div>
+                        <div class="col-md-4">
+                         
+                          <input type="text" class="form-control" id="Parametervalue 2" placeholder="Parameter value 1">
+                        </div>
+                        <button class="btn btn-primary" id="add">+</button>
+                </div>
+                <div  id="addparams">
+
+                    </div>
+        </div>
+        
+
+       <!-- this will hide on clicking param option in menu  -->
+      <div id="jsonbox" class="my-3">
+            <div class="form-group row ">
+            <label for="reuest json box" class="col-sm-2 col-form-label">Request json text</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="jsontext" ></textarea>
+                </div>
+            </div>
+      </div>
+
+
+      <!-- for header -->
+      <fieldset class="form-group my-1">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Headers</legend>
+          <div class="col-sm-10 ">
+            <div class="form-check">
+             <label class="form-check-label" for="custom">
+              <div  id="headersbox">
+                <div class="form-row">
+                        <label for="url" class="col-sm-2 col-form-label">Header 1</label>
+                        <div class="col-md-4">
+                        
+                          <input type="text" class="form-control" id="Headerkey 1" placeholder="key 1">
+                        </div>
+                        <div class="col-md-4">
+                         
+                          <input type="text" class="form-control" id="Headervalue 2" placeholder="value 1">
+                        </div>
+                        <button class="btn btn-primary" id="addheader">+</button>
+                </div>
+                <div  id="addheaderit">
+
+                    </div>
+        </div>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+
+
+      <div class="form-group row my-2">
+        <div class="col-sm-10">
+            <button class="btn btn-primary" id="submit">Submit</button>
+        </div>
+  </div>
+
+
+<!-- this is the response area -->
+      <div id="Response" class="my-3">
+            <div class="form-group row ">
+            <label for="reuest json box" class="col-sm-2 col-form-label">Response</label>
+                <div class="col-sm-10">
+                    <!-- <textarea  id="result" rows="3" style="background-color:black;color:whitesmoke"></textarea> -->
+                    <div class="form-control" id="json-renderer" style="height: auto;width: auto;overflow-y: auto;">Response text area</div>
+                </div>
+            </div>
+      </div>
+
+      </div>
+   
+      
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+  crossorigin="anonymous"></script>
+  <script src="jquery.json-viewer.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="index.js"></script>  
+</body>
+</html>
+
+
